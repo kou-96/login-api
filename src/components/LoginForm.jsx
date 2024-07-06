@@ -14,7 +14,6 @@ function LoginForm() {
       email: email,
       password: password,
     };
-
     try {
       const res = await fetch(url, {
         method: "POST",
@@ -27,11 +26,10 @@ function LoginForm() {
       if (!res.ok) {
         throw new Error("ユーザー名またはパスワードが間違っています。");
       }
-      const resData = await res.json();
-      console.log("ログイン成功:", resData);
-      alert("ログイン成功");
+      const resData = await res.text();
+      alert(resData);
     } catch (error) {
-      console.log("ログインエラー:");
+      console.error("ログインエラー:", error);
       alert("ログイン失敗");
     }
   }
@@ -61,7 +59,7 @@ function LoginForm() {
             <FaLock className="icon" />
           </div>
 
-          <button type="submit" onClick={login}>
+          <button type="submit" onClick={() => login(email, password)}>
             ログイン
           </button>
 

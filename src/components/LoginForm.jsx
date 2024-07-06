@@ -14,7 +14,6 @@ function LoginForm() {
       email: email,
       password: password,
     };
-    console.log(data);
     try {
       const res = await fetch(url, {
         method: "POST",
@@ -28,10 +27,9 @@ function LoginForm() {
         throw new Error("ユーザー名またはパスワードが間違っています。");
       }
       const resData = await res.text();
-      console.log("ログイン成功:", resData);
-      alert("ログイン成功");
+      alert(resData);
     } catch (error) {
-      console.log("ログインエラー:", error);
+      console.error("ログインエラー:", error);
       alert("ログイン失敗");
     }
   }

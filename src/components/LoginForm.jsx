@@ -1,5 +1,5 @@
 import "./LoginForm.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaLock } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
 import { useState } from "react";
@@ -7,6 +7,7 @@ import { useState } from "react";
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   async function login(email, password) {
     const url = "http://localhost:5001/api/login";
@@ -28,6 +29,7 @@ function LoginForm() {
       }
       const resData = await res.text();
       alert(resData);
+      navigate("/add");
     } catch (error) {
       console.error("ログインエラー:", error);
       alert("ログイン失敗");

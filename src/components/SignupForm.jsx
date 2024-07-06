@@ -50,7 +50,7 @@ function SignupForm() {
             <FaLock className="icon" />
           </div>
 
-          <button onClick={signup}>Sign up</button>
+          <button onClick={signup}>登録</button>
 
           <div className="register-link">
             <p>

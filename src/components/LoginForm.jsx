@@ -62,7 +62,7 @@ function LoginForm() {
           </div>
 
           <button type="submit" onClick={login}>
-            Login
+            ログイン
           </button>
 
           <div className="register-link">
